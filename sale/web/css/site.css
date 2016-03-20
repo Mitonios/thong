@@ -1,0 +1,103 @@
+html,
+body {
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+}
+
+#panel-right {
+    width: 350px;
+    border-left: 1px solid #dceaee;
+    position: absolute;
+    height: 100%;
+    right: 0;
+    top: 50px;
+    padding: 5px;
+}
+
+#panel-left {
+    min-height: 100%;
+    position: relative;
+    margin-right: 350px;
+    margin-top: 50px;
+}
+
+#bill-items {
+    overflow-x: hidden;
+}
+
+#product-items {
+    border: 1px solid #4bc6f2;
+    height: 300px;
+    overflow-x: hidden;
+}
+
+table.customer-info {
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+table.customer-info td:first-child {
+    font-weight: bold;
+}
+
+#panel-right .panel {
+    margin-bottom: 5px;
+}
+
+.panel-body .form-group:last-child {
+    margin-bottom: 0;
+}
+
+/*product-items*/
+#product-items {
+    padding: 10px;
+}
+
+#product-items .item {
+    width: 100px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+#product-items .item .avatar {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    height: 100px;
+}
+
+#product-items .item .name {
+    overflow: hidden;
+    display: block;
+    height: 36px;
+}
+
+#product-items .item .avatar img {
+    width: 100%;
+}
+
+#product-items .item .avatar .price {
+    position: absolute;
+    bottom: 0;
+}
+
+.noshow {
+    display: none;
+}
+
+.select2-container--default .select2-selection--single {
+    height: 34px;
+}
+
+.select2-result-repository { padding-top: 4px; padding-bottom: 3px; }
+.select2-result-repository__avatar { float: left; width: 60px; margin-right: 10px; }
+.select2-result-repository__avatar img { width: 100%; height: auto; border-radius: 2px; }
+.select2-result-repository__meta { margin-left: 70px; }
+.select2-result-repository__title { color: black; font-weight: bold; word-wrap: break-word; line-height: 1.1; margin-bottom: 4px; }
+.select2-result-repository__forks, .select2-result-repository__stargazers { margin-right: 1em; }
+.select2-result-repository__forks, .select2-result-repository__stargazers, .select2-result-repository__watchers { display: inline-block; color: #aaa; font-size: 11px; }
+.select2-result-repository__description { font-size: 13px; color: #777; margin-top: 4px; }
+.select2-results__option--highlighted .select2-result-repository__title { color: white; }
+.select2-results__option--highlighted .select2-result-repository__forks, .select2-results__option--highlighted .select2-result-repository__stargazers, .select2-results__option--highlighted .select2-result-repository__description, .select2-results__option--highlighted .select2-result-repository__watchers { color: #c6dcef; }
