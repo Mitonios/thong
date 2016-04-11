@@ -19,7 +19,6 @@ use yii\bootstrap\ActiveForm;
             'hint' => '',
         ],
     ]]); ?>
-
 <?= $form->field($model, 'username')->textInput(['maxlength' => true, 'readonly' => !$model->getIsNew()]) ?>
 <?= $form->field($model, 'email')->textInput(['maxlength' => true, 'readonly' => !$model->getIsNew()]) ?>
 <?= $form->field($model, 'password')->passwordInput()->hint($model->getIsNew() ? "" : "Nhập mật khẩu mới"); ?>

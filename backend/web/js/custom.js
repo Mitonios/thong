@@ -2,55 +2,69 @@
  * Created by Mitonios-Tofu on 2/22/2016.
  */
 $(function () {
-    Ladda.bind('.ladda-button', {
-        timeout: 3000
-    });
-    Ladda.bind('.progress-button', {
-        callback: function (instance) {
-            var progress = 0;
-            var interval = setInterval(function () {
-                progress = Math.min(progress + Math.random() * 0.1, 1);
-                instance.setProgress(progress);
-
-                if (progress === 1) {
-                    instance.stop();
-                    clearInterval(interval);
-                }
-            }, 200);
-        }
-    });
-    function openModal(type, href) {
-        $.ajax({
-            type: "POST",
-            url: href,
-            error: function (xhr, ajaxOptions, thrownError) {
-                console.error(xhr.responseText);
-            },
-            success: function (data) {
-                $('#modal-panel').addClass(type).html(data)
-                $.magnificPopup.open({
-                    removalDelay: 500,
-                    items: {
-                        src: '#modal-panel'
-                    },
-                    callbacks: {
-                        beforeOpen: function (e) {
-                            this.st.mainClass = 'mfp-zoomIn';
-                        }
-                    },
-                    midClick: true
-                });
-            }
-        });
-        return false;
+    //$.fn.datepicker.defaults.format = "dd/mm/yyyy";
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "positionClass": "toast-top-right",
+        "onclick": null,
+        "showDuration": "1000",
+        "hideDuration": 0,
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
     }
+    /*Ladda.bind('.ladda-button', {
+     timeout: 3000
+     });
+     Ladda.bind('.progress-button', {
+     callback: function (instance) {
+     var progress = 0;
+     var interval = setInterval(function () {
+     progress = Math.min(progress + Math.random() * 0.1, 1);
+     instance.setProgress(progress);
 
-    $('.open-modal').click(function () {
-        return openModal('popup-basic', $(this).attr('href'));
-    })
-    $('.open-modal-xl').click(function () {
-        return openModal('popup-xl', $(this).attr('href'));
-    })
+     if (progress === 1) {
+     instance.stop();
+     clearInterval(interval);
+     }
+     }, 200);
+     }
+     });
+     function openModal(type, href) {
+     $.ajax({
+     type: "POST",
+     url: href,
+     error: function (xhr, ajaxOptions, thrownError) {
+     console.error(xhr.responseText);
+     },
+     success: function (data) {
+     $('#modal-panel').addClass(type).html(data)
+     $.magnificPopup.open({
+     removalDelay: 500,
+     items: {
+     src: '#modal-panel'
+     },
+     callbacks: {
+     beforeOpen: function (e) {
+     this.st.mainClass = 'mfp-zoomIn';
+     }
+     },
+     midClick: true
+     });
+     }
+     });
+     return false;
+     }
+
+     $('.open-modal').click(function () {
+     return openModal('popup-basic', $(this).attr('href'));
+     })
+     $('.open-modal-xl').click(function () {
+     return openModal('popup-xl', $(this).attr('href'));
+     })*/
 })
 
 function number_format(number, decimals, dec_point, thousands_sep) {

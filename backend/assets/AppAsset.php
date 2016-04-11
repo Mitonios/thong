@@ -19,38 +19,45 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        /*<!-- -------------- Fonts -------------- -->*/
-        'http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700',
-        'https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic',
-        /*<!-- -------------- Icomoon -------------- -->*/
-        'alliance/assets/fonts/icomoon/icomoon.css',
-        /*<!-- -------------- Plugins -------------- -->*/
-        'alliance/assets/js/plugins/ladda/ladda.min.css',
-        'alliance/assets/js/plugins/magnific/magnific-popup.css',
-        /*<!-- -------------- CSS - theme -------------- -->*/
-        'alliance/assets/skin/default_skin/css/theme.css',
-        /*<!-- -------------- CSS - allcp forms -------------- -->*/
-        'alliance/assets/allcp/forms/css/forms.css',
+        //'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all',
+        //'https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic',
+        'metronic_v4.5.5/assets/global/plugins/font-awesome/css/font-awesome.min.css',
+        'metronic_v4.5.5/assets/global/plugins/simple-line-icons/simple-line-icons.min.css',
+        'metronic_v4.5.5/assets/global/plugins/bootstrap/css/bootstrap.min.css',
+        'metronic_v4.5.5/assets/global/plugins/uniform/css/uniform.default.css',
+        'metronic_v4.5.5/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css',
+        'metronic_v4.5.5/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css',
+        'metronic_v4.5.5/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css',
+        'metronic_v4.5.5/assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css',
+        'metronic_v4.5.5/assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css',
+        'metronic_v4.5.5/assets/global/plugins/bootstrap-toastr/toastr.min.css',
+        'metronic_v4.5.5/assets/global/plugins/fancybox/source/jquery.fancybox.css',
+        'metronic_v4.5.5/assets/global/css/components-md.min.css',
+        'metronic_v4.5.5/assets/global/css/plugins-md.min.css',
+        'metronic_v4.5.5/assets/layouts/layout/css/layout.min.css',
+        'metronic_v4.5.5/assets/layouts/layout/css/themes/darkblue.min.css',
+        'metronic_v4.5.5/assets/layouts/layout/css/custom.min.css',
         'css/custom.css',
     ];
     public $js = [
-        /*<!-- -------------- jQuery -------------- -->*/
-        'alliance/assets/js/jquery/jquery_ui/jquery-ui.min.js',
-        /*<!-- -------------- Theme Scripts -------------- -->*/
-        'alliance/assets/js/plugins/holder/holder.min.js',
-        'alliance/assets/js/plugins/ladda/ladda.min.js',
-        'alliance/assets/js/plugins/pnotify/pnotify.js',
-        'alliance/assets/allcp/forms/js/jquery.validate.min.js',
-        'alliance/assets/allcp/forms/js/additional-methods.min.js',
-        'alliance/assets/js/plugins/magnific/jquery.magnific-popup.js',
-        'alliance/assets/js/utility/utility.js',
-        'alliance/assets/js/demo/demo.js',
-        'js/autosize.min.js',
-        'js/jquery.hotkeys.js',
-        'js/main.js',
-        /*<!-- -------------- Widget JS -------------- -->*/
-        'alliance/assets/js/demo/widgets.js',
-        'js/dashboard1.js',
+        'metronic_v4.5.5/assets/global/plugins/jquery.min.js',
+        'metronic_v4.5.5/assets/global/plugins/bootstrap/js/bootstrap.min.js',
+        'metronic_v4.5.5/assets/global/plugins/js.cookie.min.js',
+        'metronic_v4.5.5/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js',
+        'metronic_v4.5.5/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js',
+        'metronic_v4.5.5/assets/global/plugins/jquery.blockui.min.js',
+        'metronic_v4.5.5/assets/global/plugins/uniform/jquery.uniform.min.js',
+        'metronic_v4.5.5/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js',
+        'metronic_v4.5.5/assets/global/plugins/moment.min.js',
+        'metronic_v4.5.5/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js',
+        'metronic_v4.5.5/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js',
+        'metronic_v4.5.5/assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js',
+        'metronic_v4.5.5/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js',
+        'metronic_v4.5.5/assets/global/plugins/bootstrap-toastr/toastr.min.js',
+        'metronic_v4.5.5/assets/global/plugins/fancybox/source/jquery.fancybox.pack.js',
+        'metronic_v4.5.5/assets/global/scripts/app.min.js',
+        'metronic_v4.5.5/assets/layouts/layout/scripts/layout.min.js',
+        'metronic_v4.5.5/assets/layouts/layout/scripts/demo.min.js',
         'js/custom.js',
     ];
     public $depends = [

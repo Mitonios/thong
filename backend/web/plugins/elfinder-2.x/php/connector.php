@@ -45,12 +45,12 @@ function access($attr, $path, $data, $volume)
 // Documentation for connector options:
 // https://github.com/Studio-42/elFinder/wiki/Connector-configuration-options
 $opts = array(
-    // 'debug' => true,
+    'debug' => true,
     'roots' => array(
         array(
             'driver' => 'LocalFileSystem',           // driver for accessing file system (REQUIRED)
-            'path' => 'C:\Users\Mitonios-Tofu\Google Drive\www\mitonios\upload/',                 // path to files (REQUIRED)
-            'URL' => 'http://localhost/mitonios/upload/', // URL to files (REQUIRED)
+            'path' => 'D:\Google Driver\www\thong\upload\images/',                 // path to files (REQUIRED)
+            'URL' => 'http://localhost/thong/upload/images/', // URL to files (REQUIRED)
             'uploadDeny' => array('all'),                // All Mimetypes not allowed to upload
             'uploadAllow' => array('image', 'text/plain'),// Mimetype `image` and `text/plain` allowed to upload
             'uploadOrder' => array('deny', 'allow'),      // allowed Mimetype `image` and `text/plain` only

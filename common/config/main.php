@@ -6,8 +6,20 @@ return [
             'class' => 'johnitvn\rbacplus\Module'
         ]
     ],
+    'language' => 'vi',
     'components' => [
-		'db' => [
+        'authClientCollection' => [
+            'class' => 'yii\authclient\Collection',
+            'clients' => [
+                'facebook' => [
+                    'class' => 'yii\authclient\clients\Facebook',
+                    'authUrl' => 'https://www.facebook.com/dialog/oauth?display=popup',
+                    'clientId' => '1011730865518456',
+                    'clientSecret' => '468bac4e26366d9cf4c7c7a24da9dc42',
+                ],
+            ],
+        ],
+        'db' => [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=localhost;dbname=thongvn_db',
             'username' => 'thongvn_db',

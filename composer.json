@@ -19,7 +19,8 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "johnitvn/yii2-rbac-plus": "*",
-        "abhi1693/yii2-config": "1.0.0"
+        "abhi1693/yii2-config": "1.0.0",
+        "yiisoft/yii2-authclient": "^2.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

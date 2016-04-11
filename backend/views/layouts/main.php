@@ -21,269 +21,237 @@ AppAsset::register($this);
     <link rel="shortcut icon" href="<?= Url::home() ?>favicon.ico">
     <?php $this->head() ?>
 </head>
-<body class="dashboard-page sb-l-m">
+<body class="page-sidebar-closed-hide-logo page-content-white page-md page-header-fixed">
 <?php $this->beginBody() ?>
-<!-- -------------- Customizer -------------- -->
-<?= $this->render("_customizer_tool") ?>
-<!-- -------------- /Customizer -------------- -->
-
-<!-- -------------- Body Wrap  -------------- -->
-<div id="main">
-
-    <!-- -------------- Header  -------------- -->
-    <header class="navbar bg-dark">
-        <div class="navbar-logo-wrapper">
-            <a class="navbar-logo-text" href="<?= Url::home() ?>">
-                <b><?= Yii::$app->name ?></b>
-            </a>
-            <span id="sidebar_left_toggle" class="ad ad-lines"></span>
+<!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top">
+    <!-- BEGIN HEADER INNER -->
+    <div class="page-header-inner ">
+        <!-- BEGIN LOGO -->
+        <div class="page-logo">
+            <div class="menu-toggler sidebar-toggler"></div>
         </div>
-        <ul class="nav navbar-nav navbar-left">
-            <li class="dropdown dropdown-fuse hidden-xs">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                    Action
-                    <span class="fa fa-chevron-down"></span>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="<?= Url::to(['/order/create']) ?>">Tạo đơn hàng</a></li>
-                    <li><a href="<?= Url::to(['/customer/create']) ?>">Tạo khách hàng</a></li>
-                    <li><a href="<?= Url::to(['/product/create']) ?>">Tạo sản phẩm</a></li>
-                    <li class="divider"></li>
-                    <li><a href="<?= Url::to(['/ticket-product-import/create']) ?>">Nhập hàng</a></li>
-                </ul>
-            </li>
-            <li class="hidden-xs">
-                <a class="navbar-fullscreen toggle-active" href="#">
-                    <span class="glyphicon glyphicon-fullscreen"></span>
-                </a>
-            </li>
-        </ul>
-        <!--<form class="navbar-form navbar-left search-form square" role="search">
-            <div class="input-group add-on">
-                <input type="text" class="form-control" placeholder="Tìm sản phẩm/khách hàng..." onfocus="this.placeholder=''"
-                       onblur="this.placeholder='Tìm sản phẩm/khách hàng...'">
-                <div class="input-group-btn">
-                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                </div>
-
-            </div>
-        </form>-->
-        <ul class="nav navbar-nav navbar-right">
-            <li class="hidden-xs">
-                <div class="navbar-btn btn-group">
-                    <a href="#" class="topbar-dropmenu-toggle btn" data-toggle="button">
-                        <span class="fa fa-magic fs20 text-info"></span>
+        <!-- END LOGO -->
+        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
+        <!-- END RESPONSIVE MENU TOGGLER -->
+        <!-- BEGIN TOP NAVIGATION MENU -->
+        <div class="top-menu">
+            <ul class="nav navbar-nav pull-right">
+                <!-- BEGIN USER LOGIN DROPDOWN -->
+                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                <li class="dropdown dropdown-user">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <img alt="" class="img-circle" src="<?= Mitonios::getUserAvatar(Yii::$app->user->id) ?>"/>
+                        <span class="username username-hide-on-mobile"><?= !Yii::$app->user->isGuest ? Yii::$app->user->identity->username : "" ?></span>
+                        <i class="fa fa-angle-down"></i>
                     </a>
-                </div>
-            </li>
-            <li>
-                <div class="navbar-btn btn-group">
-                    <a class="btn btn-md dropdown-toggle" target="_blank"
-                       href="<?= Url::to('/sale/web') ?>"><span class="fa fa-shopping-cart fs20 text-danger"></span></a>
-                </div>
-            </li>
-            <li class="dropdown dropdown-fuse">
-                <a href="#" class="dropdown-toggle fw600" data-toggle="dropdown">
-                    <span class="hidden-xs"><name><?= Yii::$app->user->identity->username ?></name> </span>
-                    <span class="fa fa-caret-down hidden-xs mr15"></span>
-                    <img src="<?= Mitonios::getUserAvatar(Yii::$app->user->id) ?>" alt="avatar" class="mw55">
-                </a>
-                <ul class="dropdown-menu list-group keep-dropdown w250" role="menu">
-                    <li class="dropdown-header clearfix">
-                        <div class="pull-left">
-                            <a href="<?= Url::to(['/site/logout']) ?>" class="btn btn-primary btn-sm btn-bordered">
-                                <span class="imoon imoon-key2"></span> Đổi mật khẩu </a>
-                        </div>
-                        <div class="pull-right">
-                            <a href="<?= Url::to(['/site/logout']) ?>" class="btn btn-primary btn-sm btn-bordered">
-                                <span class="fa fa-power-off pr5"></span> Thoát</a>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </header>
-    <!-- -------------- /Header  -------------- -->
-
-    <!-- -------------- Sidebar  -------------- -->
-    <aside id="sidebar_left" class="nano nano-light affix">
-        <!-- -------------- Sidebar Left Wrapper  -------------- -->
-        <div class="sidebar-left-content nano-content">
-
-            <!-- -------------- Sidebar Menu  -------------- -->
-            <ul class="nav sidebar-menu">
-                <li class="sidebar-label pt30">Menu</li>
-                <li class="">
-                    <a class="" href="<?= Url::home() ?>">
-                        <span class="fa fa-dashboard"></span>
-                        <span class="sidebar-title">Tổng quan</span>
-                    </a>
-                </li>
-                <li class="">
-                    <a class="" href="#">
-                        <span class="fa fa-home"></span>
-                        <span class="sidebar-title">Cửa hàng</span>
-                    </a>
-                    <ul class="nav sub-nav">
-                        <li><a href="<?= Url::to(['/product/list']) ?>">Danh mục hàng</a></li>
-                        <li><a href="">Trả hàng</a></li>
-                        <li><a href="">Kiểm hàng</a></li>
+                    <ul class="dropdown-menu dropdown-menu-default">
+                        <li>
+                            <a href="<?= Url::to(['/site/logout']) ?>">
+                                <i class="icon-key"></i> Thoát tài khoản</a>
+                        </li>
                     </ul>
                 </li>
-                <li class="">
-                    <a class="" href="#">
-                        <span class="fa fa-shopping-cart"></span>
-                        <span class="sidebar-title">Kho hàng</span>
-                    </a>
-                    <ul class="nav sub-nav">
-                        <li><a href="<?= Url::to(['/ticket-product-import/index']) ?>">Phiếu nhập hàng</a></li>
-                        <li><a href="">Trả hàng nhập</a></li>
-                        <li><a href="">Thiết lập giá</a></li>
-                        <li><a href="">Kiểm kho</a></li>
-                        <li><a href="">Chuyển hàng</a></li>
-                        <li><a href="">Hủy hàng</a></li>
-                    </ul>
-                </li>
-                <li class="">
-                    <a class="" href="<?= Url::to(['/order']) ?>">
-                        <span class="fa fa-file-text-o"></span>
-                        <span class="sidebar-title">Hóa đơn</span>
+                <!-- END USER LOGIN DROPDOWN -->
+                <li class="dropdown dropdown-quick-sidebar-toggler">
+                    <a href="<?= Url::to(['/metronic_v4.5.5/admin_1_material_design/']) ?>" class="dropdown-toggle" target="_blank">
+                        <i class="icon-action-redo"></i>
                     </a>
                 </li>
-                <li class="">
-                    <a class="" href="#">
-                        <span class="fa fa-user"></span>
-                        <span class="sidebar-title">Đối tác</span>
+                <li class="dropdown dropdown-quick-sidebar-toggler">
+                    <a href="<?= Url::to(['/site/logout']) ?>" class="dropdown-toggle">
+                        <i class="icon-action-redo"></i>
                     </a>
-                    <ul class="nav sub-nav">
-                        <li><a href="">Khách hàng</a></li>
-                        <li><a href="">Nhà cung cấp</a></li>
-                    </ul>
-                </li>
-                <li class="">
-                    <a class="" href="#">
-                        <span class="fa fa-dollar"></span>
-                        <span class="sidebar-title">Sổ quỹ</span>
-                    </a>
-                    <ul class="nav sub-nav">
-                        <li><a href="">Tiền mặt</a></li>
-                        <li><a href="">Ngân hàng</a></li>
-                        <li><a href="">Tổng quỹ</a></li>
-                    </ul>
-                </li>
-                <li class="">
-                    <a class="" href="#">
-                        <span class="fa fa-bar-chart-o"></span>
-                        <span class="sidebar-title">Thống kê/Báo cáo</span>
-                    </a>
-                    <ul class="nav sub-nav">
-                        <li><a href="">Cuối ngày</a></li>
-                        <li><a href="">Tài chính</a></li>
-                        <li><a href="">Khách hàng</a></li>
-                    </ul>
                 </li>
             </ul>
-            <!-- -------------- /Sidebar Menu  -------------- -->
         </div>
-        <!-- -------------- /Sidebar Left Wrapper  -------------- -->
-    </aside>
-    <!-- -------------- /Sidebar -------------- -->
-    <!-- -------------- Main Wrapper -------------- -->
-    <section id="content_wrapper">
-        <!-- -------------- Topbar Menu Wrapper -------------- -->
-        <div id="topbar-dropmenu-wrapper">
-            <div class="topbar-menu row">
-                <div class="col-xs-4 col-sm-2">
-                    <a href="#" class="service-box bg-danger">
-                        <span class="fa fa-music"></span>
-                        <span class="service-title">Audio</span>
+        <!-- END TOP NAVIGATION MENU -->
+    </div>
+    <!-- END HEADER INNER -->
+</div>
+<!-- END HEADER -->
+<!-- BEGIN HEADER & CONTENT DIVIDER -->
+<div class="clearfix"></div>
+<!-- END HEADER & CONTENT DIVIDER -->
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <!-- BEGIN SIDEBAR -->
+    <div class="page-sidebar-wrapper">
+        <div class="page-sidebar navbar-collapse collapse">
+            <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+                <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+                <li class="sidebar-toggler-wrapper hide">
+                    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                    <div class="sidebar-toggler"></div>
+                    <!-- END SIDEBAR TOGGLER BUTTON -->
+                </li>
+                <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+                <li class="sidebar-search-wrapper">
+                    <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+                    <!-- DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box -->
+                    <!-- DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box -->
+                    <form class="sidebar-search  " action="" method="POST">
+                        <a href="javascript:;" class="remove">
+                            <i class="icon-close"></i>
+                        </a>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <a href="javascript:;" class="btn submit">
+                                    <i class="icon-magnifier"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </form>
+                    <!-- END RESPONSIVE QUICK SEARCH FORM -->
+                </li>
+                <li class="nav-item start">
+                    <a href="<?= Url::home() ?>" class="nav-link">
+                        <i class="icon-screen-desktop"></i>
+                        <span class="title">Tổng quan</span>
                     </a>
-                </div>
-                <div class="col-xs-4 col-sm-2">
-                    <a href="#" class="service-box bg-success">
-                        <span class="fa fa-picture-o"></span>
-                        <span class="service-title">Images</span>
+                </li>
+                <li class="nav-item start">
+                    <a href="<?= Url::to(['/chuyen-muc']) ?>" class="nav-link">
+                        <i class="icon-folder-alt"></i>
+                        <span class="title">Phân loại sản phẩm</span>
                     </a>
-                </div>
-                <div class="col-xs-4 col-sm-2">
-                    <a href="#" class="service-box bg-primary">
-                        <span class="fa fa-video-camera"></span>
-                        <span class="service-title">Videos</span>
+                </li>
+                <li class="nav-item start">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="icon-home"></i>
+                        <span class="title">Cửa hàng</span>
+                        <span class="arrow open"></span>
                     </a>
-                </div>
-                <div class="col-xs-4 col-sm-2">
-                    <a href="#" class="service-box bg-alert">
-                        <span class="fa fa-envelope"></span>
-                        <span class="service-title">Messages</span>
+                    <ul class="sub-menu">
+                        <li class="nav-item">
+                            <a href="<?= Url::to(['/san-pham']) ?>" class="nav-link">
+                                <span class="title">Sản phẩm</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item start">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="icon-umbrella"></i>
+                        <span class="title">Kho hàng</span>
+                        <span class="arrow open"></span>
                     </a>
-                </div>
-                <div class="col-xs-4 col-sm-2">
-                    <a href="#" class="service-box bg-system">
-                        <span class="fa fa-cog"></span>
-                        <span class="service-title">Settings</span>
+                    <ul class="sub-menu">
+                        <li class="nav-item">
+                            <a href="<?= Url::to(['/san-pham-kho']) ?>" class="nav-link">
+                                <span class="title">Sản phẩm kho</span>
+                            </a>
+                        </li>
+                        <li class="nav-item start">
+                            <a href="<?= Url::to(['/nhap-hang']) ?>" class="nav-link">
+                                <span class="title">Phiếu nhập</span>
+                            </a>
+                        </li>
+                        <li class="nav-item start">
+                            <a href="<?= Url::to(['/phieu-xuat-kho']) ?>" class="nav-link">
+                                <span class="title">Phiếu xuất</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item start">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="icon-users"></i>
+                        <span class="title">Đối tác</span>
+                        <span class="arrow open"></span>
                     </a>
-                </div>
-                <div class="col-xs-4 col-sm-2">
-                    <a href="<?= Url::to(['/user/index']) ?>" class="service-box bg-dark">
-                        <span class="fa fa-user"></span>
-                        <span class="service-title">Tài khoản</span>
+                    <ul class="sub-menu">
+                        <li class="nav-item start">
+                            <a href="<?= Url::to(['/nha-cung-cap']) ?>" class="nav-link">
+                                <span class="title">Nhà cung cấp</span>
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= Url::to(['/dai-ly']) ?>" class="nav-link">
+                                <span class="title">Đại lý</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item start">
+                    <a href="<?= Url::to(['/user']) ?>" class="nav-link">
+                        <i class="icon-user"></i>
+                        <span class="title">Tài khoản</span>
                     </a>
-                </div>
+                </li>
+            </ul>
+        </div>
+        <!-- END SIDEBAR -->
+    </div>
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <!-- BEGIN CONTENT BODY -->
+        <div class="page-content">
+            <?= $content ?>
+        </div>
+        <!-- END CONTENT BODY -->
+    </div>
+
+    <div id="modal-responsive" class="modal fade" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
             </div>
         </div>
-        <!-- -------------- /Topbar Menu Wrapper -------------- -->
-        <!--<div class="alert alert-danger dark alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <i class="fa fa-info pr10"></i>
-            <strong>Dark Shade.</strong> Use class <code class="ml5">.dark</code>
+    </div>
+
+    <div class="modal fade bs-modal-lg" id="modal-large" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+            </div>
         </div>
-        <div class="alert alert-info dark alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <i class="fa fa-info pr10"></i>
-            <strong>Dark Shade.</strong> Use class <code class="ml5">.dark</code>
-        </div>-->
-        <script>
-            function showAlert(title, text, type) {
-                new PNotify({
-                    title: title,
-                    text: text,
-                    type: type,
-                    addclass: 'stack_bar_top',
-                    stack: {
-                        "dir1": "down",
-                        "dir2": "right",
-                        "push": "top",
-                        "spacing1": 0,
-                        "spacing2": 0
-                    },
-                    width: '100%',
-                    delay: 1000
-                });
-            }
-            $(function () {
-                <?php
-                if (Yii::$app->session->getFlash('error')){
-                ?>
-                showAlert('Lỗi!', '<?=Yii::$app->session->getFlash('error')?>', 'danger')
-                <?
-                }elseif (Yii::$app->session->getFlash('success')) {
-                ?>
-                showAlert('Thành công!', '<?=Yii::$app->session->getFlash('success')?>', 'primary')
-                <?
-                }
-                ?>
-
-            })
-        </script>
-
-        <?= $content ?>
-        <!-- -------------- Panel popup -------------- -->
-        <div id="modal-panel" class="popup-basic popup-xl bg-none mfp-with-anim mfp-hide"></div>
-    </section>
-    <!-- -------------- /Main Wrapper -------------- -->
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- END CONTENT -->
 </div>
-<!-- -------------- /Body Wrap  -------------- -->
-
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+<div class="page-footer">
+    <div class="page-footer-inner"> <?= date('Y') ?> &copy; Quản lý SHOP.
+        <a href="http://mitonios.com" target="_blank">Mitonios</a>
+    </div>
+    <div class="scroll-to-top">
+        <i class="icon-arrow-up"></i>
+    </div>
+</div>
+<!-- END FOOTER -->
+<script>
+    <?php if (Yii::$app->session->getFlash('error')) {?>
+    toastr.error('<?=Yii::$app->session->getFlash('error')?>', 'Lỗi')
+    <?} elseif(Yii::$app->session->getFlash('success')) {?>
+    toastr.success('<?=Yii::$app->session->getFlash('success')?>', 'Thành công')
+    <?}    ?>
+    function showModal(url, type) {
+        type = !type ? "responsive" : type;
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {_csrf: '<?=Yii::$app->request->getCsrfToken()?>'},
+            beforeSend: function () {
+                App.startPageLoading({animate: true});
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                toastr.error(xhr.responseText, 'Lỗi')
+                App.stopPageLoading()
+            },
+            success: function (data) {
+                $('#modal-' + type).find('.modal-content').html(data)
+                $('#modal-' + type).modal('show')
+                App.stopPageLoading()
+            }
+        });
+        return false
+    }
+</script>
 <?php $this->endBody() ?>
 </body>
 </html>
